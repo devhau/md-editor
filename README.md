@@ -2,9 +2,9 @@
 
 A drop-in JavaScript textarea replacement for writing beautiful and understandable Markdown. The WYSIWYG-esque editor allows users who may be less experienced with Markdown to use familiar toolbar buttons and shortcuts. In addition, the syntax is rendered while editing to clearly show the expected result. Headings are larger, emphasized words are italicized, links are underlined, etc. md-editor is one of the first editors to feature both built-in autosaving and spell checking.
 
-[**Demo**](https://mdEditor.hau.xyz)
+[**Demo**](https://md-editor.hau.xyz)
 
-[![Preview](http://i.imgur.com/zqWfJwO.png)](https://mdEditor.hau.xyz)
+[![Preview](http://i.imgur.com/zqWfJwO.png)](https://md-editor.hau.xyz)
 
 ## Why not a WYSIWYG editor or pure Markdown?
 
