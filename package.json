@@ -1,5 +1,5 @@
 {
-  "name": "md-editor",
+  "name": "@devhau/md-editor",
   "version": "1.0.0",
   "description": "A simple, beautiful, and embeddable JavaScript Markdown editor. Features autosaving and spell checking.",
   "keywords": [
@@ -12,10 +12,7 @@
   "homepage": "https://github.com/devhau/md-editor",
   "main": "./src/js/md-editor.js",
   "license": "MIT",
-  "author": {
-    "name": "Nguyen Van Hau",
-    "url": "https://hau.xyz"
-  },
+  "author": "Nguyen Van Hau (https://hau.xyz)",
   "bugs": {
     "url": "https://github.com/devhau/md-editor/issues"
   },
@@ -45,6 +42,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/devhau/md-editor"
+    "url": "git+https://github.com/devhau/md-editor.git"
   }
 }
