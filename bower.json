@@ -1,0 +1,27 @@
+{
+	"name": "md-editor",
+	"version": "1.11.2",
+	"homepage": "https://github.com/devhau/md-editor",
+	"authors": [
+		"Nguyen Van Hau <https://hau.xyz>"
+	],
+	"description": "A simple, beautiful, and embeddable JavaScript Markdown editor.",
+	"main": [
+		"src/js/md-editor.js",
+		"src/css/md-editor.css"
+	],
+	"keywords": [
+		"embeddable",
+		"md-editor",
+		"markdown",
+		"editor",
+		"javascript",
+		"wysiwyg"
+	],
+	"license": "MIT",
+	"ignore": [
+		"**/.*",
+		"node_modules",
+		"bower_components"
+	]
+}

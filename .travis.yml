@@ -1,0 +1,16 @@
+language: node_js
+node_js:
+  - "6"
+  - "5"
+  - "4"
+  - "0.12"
+before_script:
+  - npm install -g gulp
+script: gulp
+deploy:
+  provider: npm
+  email: nguyenvanhaudev@gmail.com
+  on:
+    tags: true
+    repo: devhau/md-editor
+    branch: production

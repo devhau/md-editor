@@ -1,0 +1,50 @@
+{
+  "name": "md-editor",
+  "version": "1.0.0",
+  "description": "A simple, beautiful, and embeddable JavaScript Markdown editor. Features autosaving and spell checking.",
+  "keywords": [
+    "embeddable",
+    "markdown",
+    "editor",
+    "javascript",
+    "wysiwyg"
+  ],
+  "homepage": "https://github.com/devhau/md-editor",
+  "main": "./src/js/md-editor.js",
+  "license": "MIT",
+  "author": {
+    "name": "Nguyen Van Hau",
+    "url": "https://hau.xyz"
+  },
+  "bugs": {
+    "url": "https://github.com/devhau/md-editor/issues"
+  },
+  "scripts": {
+    "gulp": "gulp"
+  },
+  "dependencies": {
+    "codemirror": "^5.62.3",
+    "codemirror-spell-checker": "^1.1.2",
+    "marked": "^3.0.2"
+  },
+  "devDependencies": {
+    "browserify": "^17.0.0",
+    "debug": "^4.3.2",
+    "eslint": "^7.32.0",
+    "gulp": "^4.0.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-debug": "^4.0.0",
+    "gulp-eslint": "^6.0.0",
+    "gulp-header": "^2.0.9",
+    "gulp-jsbeautifier": "^3.0.1",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-rename": "^2.0.0",
+    "gulp-uglify": "^3.0.2",
+    "vinyl-source-stream": "^2.0.0",
+    "vinyl-buffer": "^1.0.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/devhau/md-editor"
+  }
+}
