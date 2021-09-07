@@ -1,6 +1,6 @@
 {
   "name": "@devhau/md-editor",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A simple, beautiful, and embeddable JavaScript Markdown editor. Features autosaving and spell checking.",
   "keywords": [
     "embeddable",

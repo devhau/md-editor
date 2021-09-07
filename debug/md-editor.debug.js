@@ -1,6 +1,6 @@
 /**
- * @devhau/md-editor v1.0.1
- * Copyright 
+ * @devhau/md-editor v1.0.2
+ * Copyright @Nguyen Van Hau (https://hau.xyz)
  * @link https://github.com/devhau/md-editor
  * @license MIT
  */

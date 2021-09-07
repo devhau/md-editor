@@ -16,7 +16,7 @@ var gulp = require('gulp'),
 
 var banner = ['/**',
 	' * <%= pkg.name %> v<%= pkg.version %>',
-	' * Copyright <%= pkg.company %>',
+	' * Copyright @<%= pkg.author %>',
 	' * @link <%= pkg.homepage %>',
 	' * @license <%= pkg.license %>',
 	' */',
