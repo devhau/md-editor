@@ -15,7 +15,7 @@ WYSIWYG editors that produce HTML are often complex and buggy. Markdown solves t
 Via [npm](https://www.npmjs.com/package/@devhau/md-editor).
 
 ```
-npm install md-editor --save
+npm install @devhau/md-editor --save
 ```
 
 Via [bower](https://www.bower.io).

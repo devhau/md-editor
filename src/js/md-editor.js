@@ -336,7 +336,7 @@ function toggleCodeBlock(editor) {
 	var block_start, block_end, lineCount;
 
 	if(is_code === "single") {
-		// similar to some MDEditor _toggleBlock logic
+		// similar to some mdEditor _toggleBlock logic
 		var start = line.text.slice(0, cur_start.ch).replace("`", ""),
 			end = line.text.slice(cur_start.ch).replace("`", "");
 		cm.replaceRange(start + end, {
@@ -1224,7 +1224,7 @@ var toolbarBuiltInButtons = {
 	},
 	"guide": {
 		name: "guide",
-		action: "https://MDEditor.com/markdown-guide",
+		action: "https://mdEditor.com/markdown-guide",
 		className: "fa fa-question-circle",
 		title: "Markdown Guide",
 		default: true
@@ -1265,9 +1265,9 @@ var blockStyles = {
 };
 
 /**
- * Interface of MDEditor.
+ * Interface of mdEditor.
  */
-function MDEditor(options) {
+function mdEditor(options) {
 	// Handle options parameter
 	options = options || {};
 
@@ -1308,7 +1308,7 @@ function MDEditor(options) {
 		this.element = options.element;
 	} else if(options.element === null) {
 		// This means that the element option was specified, but no element was found
-		console.log("MDEditor: Error. No element was found.");
+		console.log("mdEditor: Error. No element was found.");
 		return;
 	}
 
@@ -1397,7 +1397,7 @@ function MDEditor(options) {
 /**
  * Default markdown render.
  */
-MDEditor.prototype.markdown = function(text) {
+mdEditor.prototype.markdown = function(text) {
 	if(marked) {
 		// Initialize
 		var markedOptions = {};
@@ -1429,7 +1429,7 @@ MDEditor.prototype.markdown = function(text) {
 /**
  * Render editor to the given element.
  */
-MDEditor.prototype.render = function(el) {
+mdEditor.prototype.render = function(el) {
 	if(!el) {
 		el = this.element || document.getElementsByTagName("textarea")[0];
 	}
@@ -1550,18 +1550,18 @@ function isLocalStorageAvailable() {
 	return true;
 }
 
-MDEditor.prototype.autosave = function() {
+mdEditor.prototype.autosave = function() {
 	if(isLocalStorageAvailable()) {
-		var MDEditor = this;
+		var mdEditor = this;
 
 		if(this.options.autosave.uniqueId == undefined || this.options.autosave.uniqueId == "") {
-			console.log("MDEditor: You must set a uniqueId to use the autosave feature");
+			console.log("mdEditor: You must set a uniqueId to use the autosave feature");
 			return;
 		}
 
-		if(MDEditor.element.form != null && MDEditor.element.form != undefined) {
-			MDEditor.element.form.addEventListener("submit", function() {
-				localStorage.removeItem("smde_" + MDEditor.options.autosave.uniqueId);
+		if(mdEditor.element.form != null && mdEditor.element.form != undefined) {
+			mdEditor.element.form.addEventListener("submit", function() {
+				localStorage.removeItem("smde_" + mdEditor.options.autosave.uniqueId);
 			});
 		}
 
@@ -1574,7 +1574,7 @@ MDEditor.prototype.autosave = function() {
 			this.options.autosave.loaded = true;
 		}
 
-		localStorage.setItem("smde_" + this.options.autosave.uniqueId, MDEditor.value());
+		localStorage.setItem("smde_" + this.options.autosave.uniqueId, mdEditor.value());
 
 		var el = document.getElementById("autosaved");
 		if(el != null && el != undefined && el != "") {
@@ -1596,27 +1596,27 @@ MDEditor.prototype.autosave = function() {
 		}
 
 		this.autosaveTimeoutId = setTimeout(function() {
-			MDEditor.autosave();
+			mdEditor.autosave();
 		}, this.options.autosave.delay || 10000);
 	} else {
-		console.log("MDEditor: localStorage not available, cannot autosave");
+		console.log("mdEditor: localStorage not available, cannot autosave");
 	}
 };
 
-MDEditor.prototype.clearAutosavedValue = function() {
+mdEditor.prototype.clearAutosavedValue = function() {
 	if(isLocalStorageAvailable()) {
 		if(this.options.autosave == undefined || this.options.autosave.uniqueId == undefined || this.options.autosave.uniqueId == "") {
-			console.log("MDEditor: You must set a uniqueId to clear the autosave value");
+			console.log("mdEditor: You must set a uniqueId to clear the autosave value");
 			return;
 		}
 
 		localStorage.removeItem("smde_" + this.options.autosave.uniqueId);
 	} else {
-		console.log("MDEditor: localStorage not available, cannot autosave");
+		console.log("mdEditor: localStorage not available, cannot autosave");
 	}
 };
 
-MDEditor.prototype.createSideBySide = function() {
+mdEditor.prototype.createSideBySide = function() {
 	var cm = this.codemirror;
 	var wrapper = cm.getWrapperElement();
 	var preview = wrapper.nextSibling;
@@ -1657,7 +1657,7 @@ MDEditor.prototype.createSideBySide = function() {
 	return preview;
 };
 
-MDEditor.prototype.createToolbar = function(items) {
+mdEditor.prototype.createToolbar = function(items) {
 	items = items || this.options.toolbar;
 
 	if(!items || items.length === 0) {
@@ -1756,7 +1756,7 @@ MDEditor.prototype.createToolbar = function(items) {
 	return bar;
 };
 
-MDEditor.prototype.createStatusbar = function(status) {
+mdEditor.prototype.createStatusbar = function(status) {
 	// Initialize
 	status = status || this.options.status;
 	var options = this.options;
@@ -1874,7 +1874,7 @@ MDEditor.prototype.createStatusbar = function(status) {
 /**
  * Get or set the text content.
  */
-MDEditor.prototype.value = function(val) {
+mdEditor.prototype.value = function(val) {
 	if(val === undefined) {
 		return this.codemirror.getValue();
 	} else {
@@ -1887,100 +1887,100 @@ MDEditor.prototype.value = function(val) {
 /**
  * Bind static methods for exports.
  */
-MDEditor.toggleBold = toggleBold;
-MDEditor.toggleItalic = toggleItalic;
-MDEditor.toggleStrikethrough = toggleStrikethrough;
-MDEditor.toggleBlockquote = toggleBlockquote;
-MDEditor.toggleHeadingSmaller = toggleHeadingSmaller;
-MDEditor.toggleHeadingBigger = toggleHeadingBigger;
-MDEditor.toggleHeading1 = toggleHeading1;
-MDEditor.toggleHeading2 = toggleHeading2;
-MDEditor.toggleHeading3 = toggleHeading3;
-MDEditor.toggleCodeBlock = toggleCodeBlock;
-MDEditor.toggleUnorderedList = toggleUnorderedList;
-MDEditor.toggleOrderedList = toggleOrderedList;
-MDEditor.cleanBlock = cleanBlock;
-MDEditor.drawLink = drawLink;
-MDEditor.drawImage = drawImage;
-MDEditor.drawTable = drawTable;
-MDEditor.drawHorizontalRule = drawHorizontalRule;
-MDEditor.undo = undo;
-MDEditor.redo = redo;
-MDEditor.togglePreview = togglePreview;
-MDEditor.toggleSideBySide = toggleSideBySide;
-MDEditor.toggleFullScreen = toggleFullScreen;
+mdEditor.toggleBold = toggleBold;
+mdEditor.toggleItalic = toggleItalic;
+mdEditor.toggleStrikethrough = toggleStrikethrough;
+mdEditor.toggleBlockquote = toggleBlockquote;
+mdEditor.toggleHeadingSmaller = toggleHeadingSmaller;
+mdEditor.toggleHeadingBigger = toggleHeadingBigger;
+mdEditor.toggleHeading1 = toggleHeading1;
+mdEditor.toggleHeading2 = toggleHeading2;
+mdEditor.toggleHeading3 = toggleHeading3;
+mdEditor.toggleCodeBlock = toggleCodeBlock;
+mdEditor.toggleUnorderedList = toggleUnorderedList;
+mdEditor.toggleOrderedList = toggleOrderedList;
+mdEditor.cleanBlock = cleanBlock;
+mdEditor.drawLink = drawLink;
+mdEditor.drawImage = drawImage;
+mdEditor.drawTable = drawTable;
+mdEditor.drawHorizontalRule = drawHorizontalRule;
+mdEditor.undo = undo;
+mdEditor.redo = redo;
+mdEditor.togglePreview = togglePreview;
+mdEditor.toggleSideBySide = toggleSideBySide;
+mdEditor.toggleFullScreen = toggleFullScreen;
 
 /**
  * Bind instance methods for exports.
  */
-MDEditor.prototype.toggleBold = function() {
+mdEditor.prototype.toggleBold = function() {
 	toggleBold(this);
 };
-MDEditor.prototype.toggleItalic = function() {
+mdEditor.prototype.toggleItalic = function() {
 	toggleItalic(this);
 };
-MDEditor.prototype.toggleStrikethrough = function() {
+mdEditor.prototype.toggleStrikethrough = function() {
 	toggleStrikethrough(this);
 };
-MDEditor.prototype.toggleBlockquote = function() {
+mdEditor.prototype.toggleBlockquote = function() {
 	toggleBlockquote(this);
 };
-MDEditor.prototype.toggleHeadingSmaller = function() {
+mdEditor.prototype.toggleHeadingSmaller = function() {
 	toggleHeadingSmaller(this);
 };
-MDEditor.prototype.toggleHeadingBigger = function() {
+mdEditor.prototype.toggleHeadingBigger = function() {
 	toggleHeadingBigger(this);
 };
-MDEditor.prototype.toggleHeading1 = function() {
+mdEditor.prototype.toggleHeading1 = function() {
 	toggleHeading1(this);
 };
-MDEditor.prototype.toggleHeading2 = function() {
+mdEditor.prototype.toggleHeading2 = function() {
 	toggleHeading2(this);
 };
-MDEditor.prototype.toggleHeading3 = function() {
+mdEditor.prototype.toggleHeading3 = function() {
 	toggleHeading3(this);
 };
-MDEditor.prototype.toggleCodeBlock = function() {
+mdEditor.prototype.toggleCodeBlock = function() {
 	toggleCodeBlock(this);
 };
-MDEditor.prototype.toggleUnorderedList = function() {
+mdEditor.prototype.toggleUnorderedList = function() {
 	toggleUnorderedList(this);
 };
-MDEditor.prototype.toggleOrderedList = function() {
+mdEditor.prototype.toggleOrderedList = function() {
 	toggleOrderedList(this);
 };
-MDEditor.prototype.cleanBlock = function() {
+mdEditor.prototype.cleanBlock = function() {
 	cleanBlock(this);
 };
-MDEditor.prototype.drawLink = function() {
+mdEditor.prototype.drawLink = function() {
 	drawLink(this);
 };
-MDEditor.prototype.drawImage = function() {
+mdEditor.prototype.drawImage = function() {
 	drawImage(this);
 };
-MDEditor.prototype.drawTable = function() {
+mdEditor.prototype.drawTable = function() {
 	drawTable(this);
 };
-MDEditor.prototype.drawHorizontalRule = function() {
+mdEditor.prototype.drawHorizontalRule = function() {
 	drawHorizontalRule(this);
 };
-MDEditor.prototype.undo = function() {
+mdEditor.prototype.undo = function() {
 	undo(this);
 };
-MDEditor.prototype.redo = function() {
+mdEditor.prototype.redo = function() {
 	redo(this);
 };
-MDEditor.prototype.togglePreview = function() {
+mdEditor.prototype.togglePreview = function() {
 	togglePreview(this);
 };
-MDEditor.prototype.toggleSideBySide = function() {
+mdEditor.prototype.toggleSideBySide = function() {
 	toggleSideBySide(this);
 };
-MDEditor.prototype.toggleFullScreen = function() {
+mdEditor.prototype.toggleFullScreen = function() {
 	toggleFullScreen(this);
 };
 
-MDEditor.prototype.isPreviewActive = function() {
+mdEditor.prototype.isPreviewActive = function() {
 	var cm = this.codemirror;
 	var wrapper = cm.getWrapperElement();
 	var preview = wrapper.lastChild;
@@ -1988,7 +1988,7 @@ MDEditor.prototype.isPreviewActive = function() {
 	return /editor-preview-active/.test(preview.className);
 };
 
-MDEditor.prototype.isSideBySideActive = function() {
+mdEditor.prototype.isSideBySideActive = function() {
 	var cm = this.codemirror;
 	var wrapper = cm.getWrapperElement();
 	var preview = wrapper.nextSibling;
@@ -1996,19 +1996,19 @@ MDEditor.prototype.isSideBySideActive = function() {
 	return /editor-preview-active-side/.test(preview.className);
 };
 
-MDEditor.prototype.isFullscreenActive = function() {
+mdEditor.prototype.isFullscreenActive = function() {
 	var cm = this.codemirror;
 
 	return cm.getOption("fullScreen");
 };
 
-MDEditor.prototype.getState = function() {
+mdEditor.prototype.getState = function() {
 	var cm = this.codemirror;
 
 	return getState(cm);
 };
 
-MDEditor.prototype.toTextArea = function() {
+mdEditor.prototype.toTextArea = function() {
 	var cm = this.codemirror;
 	var wrapper = cm.getWrapperElement();
 
@@ -2033,4 +2033,4 @@ MDEditor.prototype.toTextArea = function() {
 	}
 };
 
-module.exports = MDEditor;
+module.exports = mdEditor;

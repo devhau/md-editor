@@ -10,7 +10,7 @@
 }
 
 .CodeMirror-scroll {
-    min-height: 300px
+    min-height: 300px;
 }
 
 .CodeMirror-fullscreen {
@@ -30,7 +30,7 @@
 
 .editor-toolbar {
     position: relative;
-    opacity: .6;
+    opacity: 0.6;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -47,22 +47,22 @@
 .editor-toolbar:after,
 .editor-toolbar:before {
     display: block;
-    content: ' ';
+    content: " ";
     height: 1px;
 }
 
 .editor-toolbar:before {
-    margin-bottom: 8px
+    margin-bottom: 8px;
 }
 
 .editor-toolbar:after {
-    margin-top: 8px
+    margin-top: 8px;
 }
 
 .editor-toolbar:hover,
 .editor-wrapper input.title:focus,
 .editor-wrapper input.title:hover {
-    opacity: .8
+    opacity: 0.8;
 }
 
 .editor-toolbar.fullscreen {
@@ -87,7 +87,11 @@
     width: 20px;
     height: 50px;
     background: -moz-linear-gradient(left, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
-    background: -webkit-gradient(linear, left top, right top, color-stop(0%, rgba(255, 255, 255, 1)), color-stop(100%, rgba(255, 255, 255, 0)));
+    background: -webkit-gradient(linear,
+            left top,
+            right top,
+            color-stop(0%, rgba(255, 255, 255, 1)),
+            color-stop(100%, rgba(255, 255, 255, 0)));
     background: -webkit-linear-gradient(left, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
     background: -o-linear-gradient(left, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
     background: -ms-linear-gradient(left, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
@@ -103,7 +107,11 @@
     width: 20px;
     height: 50px;
     background: -moz-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
-    background: -webkit-gradient(linear, left top, right top, color-stop(0%, rgba(255, 255, 255, 0)), color-stop(100%, rgba(255, 255, 255, 1)));
+    background: -webkit-gradient(linear,
+            left top,
+            right top,
+            color-stop(0%, rgba(255, 255, 255, 0)),
+            color-stop(100%, rgba(255, 255, 255, 1)));
     background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
     background: -o-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
     background: -ms-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
@@ -135,7 +143,7 @@
 }
 
 .editor-toolbar a:before {
-    line-height: 30px
+    line-height: 30px;
 }
 
 .editor-toolbar i.separator {
@@ -203,15 +211,15 @@
 }
 
 .editor-statusbar .lines:before {
-    content: 'lines: '
+    content: "lines: ";
 }
 
 .editor-statusbar .words:before {
-    content: 'words: '
+    content: "words: ";
 }
 
 .editor-statusbar .characters:before {
-    content: 'characters: '
+    content: "characters: ";
 }
 
 .editor-preview {
@@ -244,16 +252,16 @@
 }
 
 .editor-preview-active-side {
-    display: block
+    display: block;
 }
 
 .editor-preview-active {
-    display: block
+    display: block;
 }
 
 .editor-preview>p,
 .editor-preview-side>p {
-    margin-top: 0
+    margin-top: 0;
 }
 
 .editor-preview pre,
@@ -307,7 +315,7 @@
 }
 
 .CodeMirror .CodeMirror-code .cm-comment {
-    background: rgba(0, 0, 0, .05);
+    background: rgba(0, 0, 0, 0.05);
     border-radius: 2px;
 }
 
@@ -324,5 +332,5 @@
 }
 
 .CodeMirror .CodeMirror-placeholder {
-    opacity: .5;
+    opacity: 0.5;
 }

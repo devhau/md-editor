@@ -76,7 +76,7 @@ gulp.task('scripts', gulp.series('browserify:debug', 'browserify', 'lint', async
 
 gulp.task('scripts', gulp.series('browserify:debug', 'browserify', 'lint', async function () {
 	var js_files = ['./debug/md-editor.js'];
-	
+
 	return await gulp.src(js_files, { allowEmpty: true })
 		.pipe(concat('md-editor.min.js'))
 		.pipe(uglify())
@@ -96,7 +96,10 @@ gulp.task('styles', gulp.series('prettify-css', async function () {
 		.pipe(buffer())
 		.pipe(header(banner, { pkg: pkg }))
 		.pipe(gulp.dest('./debug/'))
-		.pipe(minifycss())
+		.pipe(minifycss({
+			rebaseTo: './node_modules',
+			processImport: true
+		}))
 		.pipe(rename('md-editor.min.css'))
 		.pipe(buffer())
 		.pipe(header(banner, { pkg: pkg }))
