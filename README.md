@@ -37,7 +37,7 @@ After installing, load md-editor on the first textarea on a page
 
 ```HTML
 <script>
-var mdEditor = new MDEditor();
+var editor = new mdEditor();
 </script>
 ```
 
@@ -47,7 +47,7 @@ Pure JavaScript method
 
 ```HTML
 <script>
-var mdEditor = new MDEditor({ element: document.getElementById("MyID") });
+var editor = new mdEditor({ element: document.getElementById("MyID") });
 </script>
 ```
 
@@ -55,18 +55,18 @@ jQuery method
 
 ```HTML
 <script>
-var mdEditor = new MDEditor({ element: $("#MyID")[0] });
+var editor = new mdEditor({ element: $("#MyID")[0] });
 </script>
 ```
 
 ## Get/set the content
 
 ```JavaScript
-mdEditor.value();
+editor.value();
 ```
 
 ```JavaScript
-mdEditor.value("This text will appear in the editor");
+editor.value("This text will appear in the editor");
 ```
 
 ## Configuration
@@ -114,7 +114,7 @@ mdEditor.value("This text will appear in the editor");
 
 ```JavaScript
 // Most options demonstrate the non-default behavior
-var mdEditor = new MDEditor({
+var editor = new mdEditor({
 	autofocus: true,
 	autosave: {
 		enabled: true,
@@ -217,12 +217,12 @@ Customize the toolbar using the `toolbar` option like:
 
 ```JavaScript
 // Customize only the order of existing buttons
-var mdEditor = new MDEditor({
+var editor = new mdEditor({
 	toolbar: ["bold", "italic", "heading", "|", "quote"],
 });
 
 // Customize all information and/or add your own icons
-var mdEditor = new MDEditor({
+var editor = new mdEditor({
 	toolbar: [{
 			name: "bold",
 			action: mdEditor.toggleBold,
@@ -267,7 +267,7 @@ md-editor comes with an array of predefined keyboard shortcuts, but they can be 
 Here is how you can change a few, while leaving others untouched:
 
 ```JavaScript
-var mdEditor = new MDEditor({
+var editor = new MDEditor({
 	shortcuts: {
 		"toggleOrderedList": "Ctrl-Alt-K", // alter the shortcut for toggleOrderedList
 		"toggleCodeBlock": null, // unbind Ctrl-Alt-C
@@ -303,8 +303,8 @@ Or, you can keep the height static:
 You can catch the following list of events: https://codemirror.net/doc/manual.html#events
 
 ```JavaScript
-var mdEditor = new MDEditor();
-mdEditor.codemirror.on("change", function(){
+var editor = new MDEditor();
+editor.codemirror.on("change", function(){
 	console.log(mdEditor.value());
 });
 ```
@@ -314,10 +314,10 @@ mdEditor.codemirror.on("change", function(){
 You can revert to the initial textarea by calling the `toTextArea` method. Note that this clears up the autosave (if enabled) associated with it. The textarea will retain any text from the destroyed md-editor instance.
 
 ```JavaScript
-var mdEditor = new MDEditor();
+var editor = new mdEditor();
 ...
-mdEditor.toTextArea();
-mdEditor = null;
+editor.toTextArea();
+editor = null;
 ```
 
 ## Useful methods
@@ -325,11 +325,11 @@ mdEditor = null;
 The following self-explanatory methods may be of use while developing with mdEditor.
 
 ```js
-var mdEditor = new MDEditor();
-mdEditor.isPreviewActive(); // returns boolean
-mdEditor.isSideBySideActive(); // returns boolean
-mdEditor.isFullscreenActive(); // returns boolean
-mdEditor.clearAutosavedValue(); // no returned value
+var editor = new mdEditor();
+editor.isPreviewActive(); // returns boolean
+editor.isSideBySideActive(); // returns boolean
+editor.isFullscreenActive(); // returns boolean
+editor.clearAutosavedValue(); // no returned value
 ```
 
 ## How it works
