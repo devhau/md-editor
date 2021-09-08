@@ -37,8 +37,6 @@
             },
             element: document.getElementById("edtor"),
             forceSync: true,
-            hideIcons: ["guide", "heading"],
-            indentWithTabs: false,
             initialValue: "Hello world!",
             insertTexts: {
                 horizontalRule: ["", "\n\n-----\n\n"],
@@ -55,16 +53,6 @@
                 underscoresBreakWords: true,
             },
             placeholder: "Type here...",
-            previewRender: function (plainText) {
-                return customMarkdownParser(plainText); // Returns HTML from a custom parser
-            },
-            previewRender: function (plainText, preview) { // Async method
-                setTimeout(function () {
-                    preview.innerHTML = customMarkdownParser(plainText);
-                }, 250);
-
-                return "Loading...";
-            },
             promptURLs: true,
             renderingConfig: {
                 singleLineBreaks: false,

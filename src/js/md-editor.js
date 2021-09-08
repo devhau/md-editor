@@ -1224,7 +1224,7 @@ var toolbarBuiltInButtons = {
 	},
 	"guide": {
 		name: "guide",
-		action: "https://mdEditor.com/markdown-guide",
+		action: "http://md-editor.hau.xyz/markdown-guide",
 		className: "fa fa-question-circle",
 		title: "Markdown Guide",
 		default: true

@@ -1,5 +1,5 @@
 /**
- * @devhau/md-editor v1.0.2
+ * @devhau/md-editor v1.0.3
  * Copyright @Nguyen Van Hau (https://hau.xyz)
  * @link https://github.com/devhau/md-editor
  * @license MIT
@@ -17303,7 +17303,7 @@ var toolbarBuiltInButtons = {
 	},
 	"guide": {
 		name: "guide",
-		action: "https://mdEditor.com/markdown-guide",
+		action: "http://md-editor.hau.xyz/markdown-guide",
 		className: "fa fa-question-circle",
 		title: "Markdown Guide",
 		default: true
