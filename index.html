@@ -4,19 +4,92 @@
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>MD Editor</title>
+    <title>Online Markdown Editor - Dillinger, the Last Markdown Editor ever.</title>
+    <meta name="description" content="Dillinger is an online cloud based HTML5 filled
+      Markdown Editor. Sync with Dropbox, Github, Google Drive or OneDrive.
+      Convert HTML to Markdown. 100% Open Source!">
+    <meta name="keywords" content="Markdown, Dillinger, Editor, ACE, Github, Open Source, Node.js">
+    <meta name="author" content="Nguyen Van Hau">
+    <meta name="robots" content="noodp, noydir">
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='dist/md-editor.min.css'>
-    <script src='dist/md-editor.min.js'></script>
+    <link rel='stylesheet' type='text/css' media='screen'
+        href='https://cdn.jsdelivr.net/npm/@devhau/md-editor/dist/md-editor.min.css'>
+    <script src='https://cdn.jsdelivr.net/npm/@devhau/md-editor/dist/md-editor.min.js'></script>
 </head>
 
 <body>
-    <div>
-        <textarea id="edtor"></textarea>
+    <div style="background-color: #373d49; width: 100%;height: 100%; position: fixed;top:0;left: 0;">
+        <div style="background-color: #fff;">
+            <textarea id="edtor"></textarea>
+        </div>
     </div>
     <script>
         var editor = new mdEditor({
-            element: document.getElementById("edtor")
+            autofocus: true,
+            autosave: {
+                enabled: true,
+                uniqueId: "MyUniqueID",
+                delay: 1000,
+            },
+            blockStyles: {
+                bold: "__",
+                italic: "_"
+            },
+            element: document.getElementById("edtor"),
+            forceSync: true,
+            hideIcons: ["guide", "heading"],
+            indentWithTabs: false,
+            initialValue: "Hello world!",
+            insertTexts: {
+                horizontalRule: ["", "\n\n-----\n\n"],
+                image: ["![](http://", ")"],
+                link: ["[", "](http://)"],
+                table: ["",
+                    "\n\n| Column 1 | Column 2 | Column 3 |\n| -------- | -------- | -------- |\n| Text     | Text      | Text     |\n\n"
+                ],
+            },
+            lineWrapping: false,
+            parsingConfig: {
+                allowAtxHeaderWithoutSpace: true,
+                strikethrough: false,
+                underscoresBreakWords: true,
+            },
+            placeholder: "Type here...",
+            previewRender: function (plainText) {
+                return customMarkdownParser(plainText); // Returns HTML from a custom parser
+            },
+            previewRender: function (plainText, preview) { // Async method
+                setTimeout(function () {
+                    preview.innerHTML = customMarkdownParser(plainText);
+                }, 250);
+
+                return "Loading...";
+            },
+            promptURLs: true,
+            renderingConfig: {
+                singleLineBreaks: false,
+                codeSyntaxHighlighting: true,
+            },
+            shortcuts: {
+                drawTable: "Cmd-Alt-T"
+            },
+            showIcons: ["code", "table"],
+            spellChecker: false,
+            status: false,
+            status: ["autosave", "lines", "words", "cursor"], // Optional usage
+            status: ["autosave", "lines", "words", "cursor", {
+                className: "keystrokes",
+                defaultValue: function (el) {
+                    this.keystrokes = 0;
+                    el.innerHTML = "0 Keystrokes";
+                },
+                onUpdate: function (el) {
+                    el.innerHTML = ++this.keystrokes + " Keystrokes";
+                }
+            }], // Another optional usage, with a custom status bar item that counts keystrokes
+            styleSelectedText: false,
+            tabSize: 4,
+            toolbarTips: true,
         });
     </script>
 </body>
